@@ -116,17 +116,6 @@ Modify animation durations and effects in the CSS file:
 - ✅ Edge (latest)
 - ✅ Mobile browsers
 
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
 
 ## 📞 Support
 
@@ -135,4 +124,5 @@ If you have any questions or need help, please open an issue on GitHub.
 ---
 
 **Made with ❤️ for modern web development**
+
 
