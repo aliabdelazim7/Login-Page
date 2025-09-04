@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure Login - Access Your Account</title>
+  <meta name="description" content="Secure login page with modern design and enhanced security features">
+  <meta name="keywords" content="login, authentication, secure login, user account">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="Lo Style.css">
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div class="loading-overlay">
+    <div class="loading-content">
+      <div class="loading-spinner"></div>
+      <p>Loading Secure Login...</p>
+    </div>
+  </div>
+
+  <!-- Background Animation -->
+  <div class="background-animation">
+    <div class="floating-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+      <div class="shape shape-4"></div>
+      <div class="shape shape-5"></div>
+    </div>
+  </div>
+
+  <!-- Main Container -->
+  <div class="container">
+    <!-- Login Form Card -->
+    <div class="login-card">
+      <div class="card-header">
+        <div class="logo">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <h1 class="title">Welcome Back</h1>
+        <p class="subtitle">Sign in to your account to continue</p>
+      </div>
+
+      <form class="login-form" id="loginForm">
+        <div class="form-group">
+          <div class="input-wrapper">
+            <i class="input-icon fas fa-envelope"></i>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              class="form-input" 
+              placeholder="Enter your email"
+              required
+            >
+            <label for="email" class="input-label">Email Address</label>
+            <div class="input-line"></div>
+          </div>
+          <div class="error-message" id="emailError"></div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-wrapper">
+            <i class="input-icon fas fa-lock"></i>
+            <input 
+              type="password" 
+              id="password" 
+              name="password" 
+              class="form-input" 
+              placeholder="Enter your password"
+              required
+            >
+            <label for="password" class="input-label">Password</label>
+            <div class="input-line"></div>
+            <button type="button" class="password-toggle" id="passwordToggle">
+              <i class="fas fa-eye"></i>
+            </button>
+          </div>
+          <div class="error-message" id="passwordError"></div>
+        </div>
+
+        <div class="form-options">
+          <label class="checkbox-wrapper">
+            <input type="checkbox" id="remember" name="remember">
+            <span class="checkmark"></span>
+            <span class="checkbox-label">Remember me</span>
+          </label>
+          <a href="#" class="forgot-link">Forgot Password?</a>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submitBtn">
+          <span class="btn-text">Sign In</span>
+          <div class="btn-loader">
+            <i class="fas fa-spinner fa-spin"></i>
+          </div>
+        </button>
+      </form>
+
+      <div class="divider">
+        <span>or continue with</span>
+      </div>
+
+      <div class="social-login">
+        <button class="social-btn google">
+          <i class="fab fa-google"></i>
+          <span>Google</span>
+        </button>
+        <button class="social-btn facebook">
+          <i class="fab fa-facebook-f"></i>
+          <span>Facebook</span>
+        </button>
+        <button class="social-btn github">
+          <i class="fab fa-github"></i>
+          <span>GitHub</span>
+        </button>
+      </div>
+
+      <div class="signup-link">
+        <p>Don't have an account? <a href="#" id="signupLink">Sign up</a></p>
+      </div>
+    </div>
+
+    <!-- Welcome Panel -->
+    <div class="welcome-panel">
+      <div class="welcome-content">
+        <div class="welcome-icon">
+          <i class="fas fa-rocket"></i>
+        </div>
+        <h2>Welcome to Our Platform</h2>
+        <p>Experience the next generation of secure authentication with our advanced login system.</p>
+        <div class="features">
+          <div class="feature-item">
+            <i class="fas fa-shield-alt"></i>
+            <span>Secure Authentication</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-bolt"></i>
+            <span>Lightning Fast</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-mobile-alt"></i>
+            <span>Mobile Friendly</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div class="modal" id="successModal">
+    <div class="modal-content">
+      <div class="success-animation">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <h3>Login Successful!</h3>
+      <p>Welcome back! You have successfully logged into your account.</p>
+      <button class="modal-btn" onclick="closeModal()">
+        <i class="fas fa-arrow-right"></i>
+        <span>Continue</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Error Modal -->
+  <div class="modal" id="errorModal">
+    <div class="modal-content">
+      <div class="error-animation">
+        <i class="fas fa-exclamation-triangle"></i>
+      </div>
+      <h3>Login Failed</h3>
+      <p id="errorMessage">Please check your credentials and try again.</p>
+      <button class="modal-btn" onclick="closeModal()">
+        <i class="fas fa-redo"></i>
+        <span>Try Again</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Notification -->
+  <div class="notification" id="notification">
+    <div class="notification-content">
+      <i class="notification-icon"></i>
+      <span class="notification-message"></span>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
